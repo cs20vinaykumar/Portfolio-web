@@ -58,11 +58,11 @@
             <div class="about-two">
               <h1 class="subtitle">About Me</h1>
               <p>
-                As a final-year Computer Science student at SZABIST Karachi,
-                specializing in Frontend Development and proficient in the MERN
-                stack, I'm eager to contribute to a dynamic team
-                post-graduation. Excited about pursuing internships to gain
-                practical experience.
+                Computer Science graduate from SZABIST Karachi with a strong
+                background in frontend and backend development. Proficient in
+                the MERN stack and eager to apply my skills within a dynamic
+                team environment. Proven ability to create visually appealing
+                and functional web experiences.
               </p>
 
               <div class="tab-titles">
@@ -80,17 +80,27 @@
               <div class="tab-contents active-tab" id="skills">
                 <ul>
                   <li><span>UI/UX</span> <br />Designing Web Pages</li>
-                  <li><span>Web Develpment</span> <br />Frontend Developer and Backend Developer MERN stack</li>
+                  <li>
+                    <span>Web Development</span> <br />Frontend - Backend
+                    Developer (MERN stack)
+                  </li>
+
+                  <li>
+                    HTML5 | CSS3 | JavaScript | Reactjs | Nodejs | Bootstrap
+                  </li>
+
                   <!-- <li><span>App Develpment</span> <br />App Developer</li> -->
                 </ul>
               </div>
 
               <div class="tab-contents" id="Experiece">
                 <ul>
-                  <li><span>UI/UX</span> <br />⭐🌟🌟</li>
-                  <li><span>Web Develpment</span> <br />🌟🌟</li>
-                  <li><span>Years Experience</span> <br />0</li>
-                  <li><span>Completed Projects</span> <br />5</li>
+                  <li>
+                    <span>Internship May 2024 - July 2024 </span> <br />Software
+                    Engineer at Mindflare Technologies
+                  </li>
+                  <li><span>Experience</span> <br />3 Months</li>
+                  <li><span>Completed Projects</span> <br />6</li>
                   <!-- <li>
                     <span>2017 - 2019</span> <br />
                     App Developer at Szabist
@@ -104,11 +114,13 @@
 
               <div class="tab-contents" id="education">
                 <ul>
-                  <li><span>2020</span> <br />Intermidate</li>
                   <li>
-                    <span>2020 - current</span> <br />Shaheed Zulfikar Ali
-                    Bhutto Institute of Science and Technology (SZABIST)
-                    karachi.
+                    <span>2018 - 2020</span> <br />Intermidate Govt Degree
+                    college Mirpur Mathelo
+                  </li>
+                  <li>
+                    <span>2020 - 2024</span> <br />Shaheed Zulfikar Ali Bhutto
+                    Institute of Science and Technology (SZABIST) karachi.
                   </li>
                   <!-- <li>
                     <span>2020</span> <br />
@@ -217,15 +229,20 @@
               </div>
             </div>
             <div class="work Image3">
-              <img src="3.PNG" alt="" />
+              <img src="detail.png" alt="" />
               <div class="layer Image2">
-                <h3>Social Media</h3>
+                <h3>Room Rover</h3>
                 <p>
-                  "Introducing my unique social media clone - a labor of love!
-                  Come and immerse yourself in a familiar yet refreshing online
-                  community.
+                  Final-Year Project Room Rover, our innovative final-year
+                  project, is a comprehensive website leveraging the MERN stack.
+                  Designed for individuals seeking temporary or permanent
+                  accommodation, it facilitates hassle-free room and flat
+                  listings, Complete with electronic agreements, providing a
+                  seamless and secure platform for both tenants and landlords.
+                  This project showcases my proficiency in the MERN stack and my
+                  commitment to developing practical solutions."
                 </p>
-                <a href="https://github.com/cs20vinaykumar"
+                <a href="https://github.com/cs20vinaykumar/FinalYearProject"
                   ><i
                     class="fa-sharp fa-solid fa-arrow-up-right-from-square"
                   ></i
@@ -269,7 +286,10 @@
                 ></a>
               </div>
 
-              <a href="Vinay Kumar's Resume.pdf" download class="btn btn2"
+              <a
+                href="Vinay Kumar's Resume.pdf"
+                download
+                class="btn btn2"
                 >Download CV</a
               >
             </div>
@@ -290,7 +310,9 @@
                 <button type="submit" class="btn btn2" id="sub">Submit</button>
               </form>
 
-              <span id="msg"></span>
+              <div id="successMessage" class="hidden">
+                Form submitted successfully!
+              </div>
             </div>
           </div>
         </div>
@@ -337,11 +359,19 @@
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbzNm4rDd8oydDngDIRKtRPZX_a_jaUdFZOSORF7A2qnTl7LkXjOM1q3fwInbhh1p_WY/exec";
       const form = document.forms["submit-to-google-sheet"];
-
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => console.log("Success!", response))
+          .then((response) => {
+            console.log("Success!", response);
+            document
+              .getElementById("successMessage")
+              .classList.remove("hidden");
+            setTimeout(() => {
+              document.getElementById("successMessage").classList.add("hidden");
+            }, 1000);
+            form.reset();
+          })
           .catch((error) => console.error("Error!", error.message));
       });
     </script>
